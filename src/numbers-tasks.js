@@ -33,8 +33,8 @@ function getRectangleArea(width, height) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(radius) {
+  return 2 * Math.PI * radius;
 }
 
 /**
@@ -68,8 +68,9 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  const result = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+  return result;
 }
 
 /**
@@ -84,8 +85,8 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  return -b / a;
 }
 
 /**
@@ -581,8 +582,9 @@ function getRandomInteger(/* min, max */) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  const result = Math.hypot(a, b);
+  return result;
 }
 
 /**
@@ -598,8 +600,22 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  const mas = [];
+  if (number >= 0) {
+    for (let i = 0; i <= number; i += 1) {
+      if (i % 2 === 1) {
+        mas.push(i);
+      }
+    }
+  } else {
+    for (let i = number; i <= 0; i += 1) {
+      if (i % 2 === -1) {
+        mas.push(i);
+      }
+    }
+  }
+  return mas.length;
 }
 
 module.exports = {
