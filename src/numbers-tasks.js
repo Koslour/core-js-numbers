@@ -211,7 +211,7 @@ function isPrime(n) {
       return false;
     }
   }
-  
+
   return true;
 }
 /**
@@ -311,8 +311,8 @@ function getSumOfDigits(num) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  return (Math.log(num) / Math.log(2)) % 1 === 0;
 }
 
 /**
@@ -471,8 +471,11 @@ function getFloatOnString(str) {
  * '1.234', 2           => 1
  * '10', 8              => 8
  */
-function getIntegerOnString(/* str, base */) {
-  throw new Error('Not implemented');
+function getIntegerOnString(str, base) {
+  if (Number.isNaN(Number.parseInt(str, base))) {
+    return NaN;
+  }
+  return parseInt(str, base);
 }
 
 /**
