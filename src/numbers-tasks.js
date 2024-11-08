@@ -49,8 +49,8 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  return value1 / 2 + value2 / 2;
 }
 /**
  * Returns a distance between two points by cartesian coordinates.
@@ -105,10 +105,15 @@ function getLinearEquationRoot(a, b) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const result1 = Math.atan2(y1, x1);
+  const result2 = Math.atan2(y2, x2);
+  const buf = result2 - result1;
+  if (buf < 0) {
+    return buf * -1;
+  }
+  return buf;
 }
-
 /**
  * Returns a last digit of a integer number.
  * The input parameter will always be greater than or equal to zero and will be in decimal notation.
@@ -175,8 +180,8 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  return Math.round(num / 10 ** pow) * 10 ** pow;
 }
 
 /**
@@ -199,7 +204,6 @@ function roundToPowerOfTen(/* num, pow */) {
 function isPrime(/* n */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Tries to convert value to number and returns it if conversion was successful;
  * otherwise returns default value passed as a second argument.
@@ -308,8 +312,8 @@ function isPowerOfTwo(/* num */) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return Math.sin(num);
 }
 
 /**
@@ -323,8 +327,8 @@ function getSine(/* num */) {
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  return number.toString(base);
 }
 
 /**
@@ -337,8 +341,8 @@ function numberToStringInBase(/* number, base */) {
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toExponential(number, fractionDigits) {
+  return number.toExponential(fractionDigits);
 }
 
 /**
@@ -352,8 +356,8 @@ function toExponential(/* number, fractionDigits */) {
  * 12345, 2    => '12345.00'
  * 12.345, 1   => '12.3'
  */
-function toFixed(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toFixed(number, fractionDigits) {
+  return Number.parseFloat(number).toFixed(fractionDigits);
 }
 
 /**
@@ -382,8 +386,8 @@ function toPrecision(/* number, precision */) {
  * new Number(5) => 5
  * Number(-5)    => -5
  */
-function getNumberValue(/* number */) {
-  throw new Error('Not implemented');
+function getNumberValue(number) {
+  return number.valueOf();
 }
 
 /**
@@ -401,8 +405,11 @@ function getNumberValue(/* number */) {
  * 5        => true
  * '5'      => false
  */
-function isNumber(/* number */) {
-  throw new Error('Not implemented');
+function isNumber(number) {
+  if (Number.isFinite(number)) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -430,8 +437,11 @@ function isInteger(number) {
  * '4.567abcdefgh' => 4.567
  * 'abcdefgh'      => NaN
  */
-function getFloatOnString(/* str */) {
-  throw new Error('Not implemented');
+function getFloatOnString(str) {
+  if (Number.isNaN(Number.parseFloat(str))) {
+    return NaN;
+  }
+  return parseFloat(str);
 }
 
 /**
@@ -463,8 +473,8 @@ function getIntegerOnString(/* str, base */) {
  * 3.5      => false
  * 2 ** 53  => false
  */
-function isSafeInteger(/* number */) {
-  throw new Error('Not implemented');
+function isSafeInteger(number) {
+  return Number.isSafeInteger(number);
 }
 
 /**
@@ -521,8 +531,8 @@ function roundToNearestInteger(number) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function getIntegerPartNumber(/* number */) {
-  throw new Error('Not implemented');
+function getIntegerPartNumber(number) {
+  return Math.trunc(number);
 }
 /**
  * Returns the sum of numbers.
