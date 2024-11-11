@@ -229,10 +229,13 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  /* const buf = value.match(/(\d+)/);
-  return buf ? parseFloat(buf) : def; */
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const bufStr = String(value);
+  const bufNum = Number(bufStr);
+  if (bufNum) {
+    return bufNum;
+  }
+  return def;
 }
 /**
  * Returns the cube of the given number.
